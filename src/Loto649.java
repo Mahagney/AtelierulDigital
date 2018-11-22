@@ -17,8 +17,6 @@ public class Loto649 {
 	private Scanner sc = new Scanner(System.in);
 	private File f = new File("649.txt");
 	private File g = new File("540.txt");
-	private PrintWriter output1;
-	private PrintWriter output2;
 
 	public void showResults() {
 		System.out.println("Last result for 6/49");
@@ -45,9 +43,9 @@ public class Loto649 {
 	}
 
 	public void writeInFile(int[] array, int howMany) { // 1-649, 2-540
-		File file=g;
-		if(howMany==6) {
-			file=f;
+		File file = g;
+		if (howMany == 6) {
+			file = f;
 		}
 		try {
 			PrintStream fileOutputStream = new PrintStream(new FileOutputStream(file, true));
@@ -75,11 +73,8 @@ public class Loto649 {
 			} else {
 				numbers[i] = currentNumber;
 			}
-
 		}
-
 		return numbers;
-
 	}
 
 	public static boolean contains(int nr, int poz, int[] currentArray) {
@@ -104,11 +99,11 @@ public class Loto649 {
 
 	public void showMenu() {
 		System.out.println("LOTO GAME");
-		System.out.println("	Please select your option:");
-		System.out.println("		1.Play 6/49");
-		System.out.println("		2.Play 5/40");
-		System.out.println("		3.Show last 3 options");
-		System.out.println("		4.Exit");
+		System.out.println("\tPlease select your option:");
+		System.out.println("\t\t1.Play 6/49");
+		System.out.println("\t\t2.Play 5/40");
+		System.out.println("\t\t3.Show last 3 options");
+		System.out.println("\t\t4.Exit");
 		System.out.print("Insert a number from 1 to 3:");
 	}
 
@@ -130,33 +125,32 @@ public class Loto649 {
 			return;
 		}
 		System.out.println("Press 1 to go to menu or any other key to exit");
-		if(sc.nextInt()==1) {
+		if (sc.nextInt() == 1) {
 			showMenu();
 			chooseOption();
 
-		}	
+		}
 	}
 
 	private void play(int howMany, int from) {
-		int[] NumbArray=new int[howMany];
-        System.out.printf("Inserati %d numere naturale:\n",howMany);
-        for(int i=0;i<howMany;i++){
-        	System.out.print(i+":");
-        	NumbArray[i] = sc.nextInt();
-        }
+		int[] NumbArray = new int[howMany];
+		System.out.printf("Inserati %d numere naturale:\n", howMany);
+		for (int i = 0; i < howMany; i++) {
+			System.out.print(i + ":");
+			NumbArray[i] = sc.nextInt();
+		}
 		int[] genNumb = genNumb(howMany, 0, from);
 		System.out.println("The generated numbers are:");
-		for(int j=0;j<howMany;j++) {
-			System.out.print(genNumb[j]+" ");
+		for (int j = 0; j < howMany; j++) {
+			System.out.print(genNumb[j] + " ");
 		}
-		writeInFile(genNumb,howMany);
+		writeInFile(genNumb, howMany);
 		int commonNumbersCount = CommonNumbersCount(genNumb, NumbArray);
-		System.out.println("Your score:"+commonNumbersCount);
+		System.out.println("Your score:" + commonNumbersCount);
 	}
 
 	public static void main(String[] args) {
 		Loto649 l = new Loto649();
-		//System.out.println(l.CommonNumbersCount(new int[]{1,2,3,4,5,6},new int[]{6,36,26,35,39}));
 		l.showMenu();
 		l.chooseOption();
 	}
