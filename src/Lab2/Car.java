@@ -1,6 +1,6 @@
 package Lab2;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private String name;
     private Engine engine;
 
@@ -17,5 +17,10 @@ public class Car {
 
     public String toString(){
         return name +"\n\t"+engine;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.name.compareTo(name);
     }
 }
