@@ -1,8 +1,16 @@
 package Lab3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
+    public static void testArrayList(){
+        ArrayList a=new ArrayList(31);
+        a.add(0,4);
+        a.add(4,5);
+    }
     public static void main(String[] args){
-        Employee emp=new Employee(25, "Steave", 123, "Dev", "Developer", 20);
+  /*      Employee emp=new Employee(25, "Steave", 123, "Dev", "Developer", 20);
         System.out.println(emp);
         emp.addHour(3);
         emp.addHour(8);
@@ -31,7 +39,7 @@ public class Main {
             result=false;
         }
         System.out.println("p1==p2  is "+ result);
-        System.out.println("p2=p3  is "+ p2.equals(p3));
-
+        System.out.println("p2=p3  is "+ p2.equals(p3));*/
+        testArrayList();
     }
 }
